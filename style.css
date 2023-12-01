@@ -1,11 +1,21 @@
 :root {
-    --main-bg-color: darkblue
+    --main-bg-color: rgb(45, 48, 62)
 }
 
 body {
     margin: 0;
+    padding: 0;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
+    background: center / cover url("/assets/bg.webp"), var(--main-bg-color);
+}
+
+.root {
+    display: flex;
+    align-items: stretch;
+    align-content: stretch;
+    height: 100%;
+    width: 100%;
 }
 
 .navbar {
@@ -13,4 +23,23 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: var(--main-bg-color);
+    font-size: 1.2em;
+    padding: 0 1em;
+}
+
+.player {
+
+    flex-grow: 1;
+    background-color: green;
+
+    /* Requires browser newer than August 2023 */
+    .album-image {
+        width: 256px;
+    }
+
+}
+
+.tracks {
+    flex-grow: 1;
+    background-color: red;
 }
