@@ -58,7 +58,11 @@ body {
         font-size: 2.2rem;
     }
 
-    .controls div {
+    .material-icons:last-of-type {
+        opacity: 0.2;
+    }
+
+    .center-buttons {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -67,6 +71,7 @@ body {
 
     .play {
         font-size: 1.5em;
+        margin: 0 1rem;
     }
 
   }
@@ -74,6 +79,7 @@ body {
   /* Requires browser newer than August 2023 */
   .album-image {
     max-width: 80%;
+    max-height: 60%;
   }
 
   .info-title {
@@ -144,6 +150,11 @@ body {
     border-radius: 7px;
   }
 
+  .bar::-webkit-progress-inner-element {
+    background-color: white;
+    border-radius: 7px;
+  }
+
 }
 
 .tracks {
@@ -205,4 +216,13 @@ body {
   .info-item:first-child {
     margin-top: 3px;
   }
+}
+
+@media (width < 400px) {
+    .player {
+        display: none;
+    }
+    .tracks {
+        border: none;
+    }
 }
