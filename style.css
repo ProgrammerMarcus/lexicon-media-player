@@ -58,7 +58,8 @@ body {
         font-size: 2.2rem;
     }
 
-    .material-icons:last-of-type {
+    /* I am surprised this works */
+    > .material-icons:last-of-type {
         opacity: 0.2;
     }
 
