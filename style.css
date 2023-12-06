@@ -1,222 +1,234 @@
 :root {
-  --main-bg-color: rgb(45, 48, 62);
-  --dark-bg-color: rgb(41, 43, 59);
-  --trans-bg-color: rgba(135, 136, 139, 0.2);
-  --color-bg: rgb(184, 184, 184);
-  --border-color: rgb(190, 215, 219);
+    --main-bg-color: rgb(45, 48, 62);
+    --dark-bg-color: rgb(41, 43, 59);
+    --trans-bg-color: rgba(135, 136, 139, 0.2);
+    --color-bg: rgb(184, 184, 184);
+    --border-color: rgb(190, 215, 219);
 }
 
 /* Does not work in firefox */
 ::-webkit-scrollbar {
-  width: 0px;
+    width: 0px;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
-  background: center / cover url("/assets/bg.webp"), var(--main-bg-color);
-  overflow: hidden;
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    background: center / cover url("/assets/bg.webp"), var(--main-bg-color);
+    overflow: hidden;
+    user-select: none;
 }
 
 .root {
-  display: flex;
-  align-items: stretch;
-  align-content: stretch;
-  height: 100%;
-  width: 100%;
+    display: flex;
+    align-items: stretch;
+    align-content: stretch;
+    height: 100%;
+    width: 100%;
 }
 
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: var(--main-bg-color);
-  font-size: 1.2em;
-  padding: 0 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--main-bg-color);
+    font-size: 1.2em;
+    padding: 0 1em;
+
+    .material-icons:hover {
+      filter: brightness(0.7);
+    }
+
 }
 
 .player {
-  flex-grow: 1;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-direction: column;
-  background-color: var(--trans-bg-color);
-  border-left: 4px solid var(--border-color);
-
-  .controls {
+    flex-grow: 1;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    flex-direction: row;
-    width: 80%;
-    font-size: 3em;
-
-    .material-icons {
-        font-size: 2.2rem;
-    }
-
-    /* I am surprised this works */
-    > .material-icons:last-of-type {
-        opacity: 0.2;
-    }
-
-    .center-buttons {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        align-content: center;
-    }
-
-    .play {
-        font-size: 1.5em;
-        margin: 0 1rem;
-    }
-
-  }
-
-  /* Requires browser newer than August 2023 */
-  .album-image {
-    max-width: 80%;
-    max-height: 60%;
-  }
-
-  .info-title {
-    margin: 2px 0 0 0;
-    color: var(--color-bg);
-  }
-
-  .info-artist {
-    margin: 0 0 2px 0;
-    padding: 0;
-    font-size: 1.2em;
-  }
-
-  .player-info {
-    width: 100%;
-    max-width: 80%;
-    display: flex;
-    align-self: center;
-    text-align: center;
-    justify-content: space-between;
-    flex-direction: row;
-  }
-
-  .player-info div {
-    display: flex;
-    align-self: center;
-    text-align: center;
     flex-direction: column;
-    font-size: 1.3em;
-  }
+    background-color: var(--trans-bg-color);
+    border-left: 4px solid var(--border-color);
 
-  .player-info .material-icons {
-    font-size: 2.6rem;
-    height: 100%;
-    text-align: center;
-    align-items: center;
-    display: flex;
-  }
+    .material-icons:hover {
+      filter: brightness(0.7);
+    }
 
-  .player-info .material-icons:nth-last-of-type(1) {
-    opacity: 0.2;
-  }
+    .controls {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: row;
+        width: 80%;
+        font-size: 3em;
 
-  .seekbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 80%;
-  }
+        .material-icons {
+            font-size: 2.2rem;
+        }
 
-  .seekbar progress {
-    width: 100%;
-    margin: 0 1em;
-    appearance: none;
-    height: 0.5em;
-  }
+        /* I am surprised this works */
+        > .material-icons:last-of-type {
+            opacity: 0.2;
+        }
 
-  .bar::-webkit-progress-bar {
-    background-color: var(--dark-bg-color);
-    border-radius: 7px;
-  }
-  .bar::-webkit-progress-value {
-    background-color: white;
-    border-radius: 7px;
-  }
-  .bar::-moz-progress-bar {
-    background-color: var(--dark-bg-color);
-    border-radius: 7px;
-  }
+        .center-buttons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-content: center;
+        }
 
-  .bar::-webkit-progress-inner-element {
-    background-color: white;
-    border-radius: 7px;
-  }
+        .play {
+            font-size: 1.5em;
+            margin: 0 1rem;
+        }
+    }
 
-}
-
-.tracks {
-  min-width: 50%;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  border-right: 4px solid var(--border-color);
-  height: calc(100svh - 3.2em);
-  overflow-y: scroll;
-  scrollbar-width: 0px; /* Should hide scrollbar in Firefox, but does not seem to work? */
-
-  .info-item {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
-    margin-bottom: 3px;
-    max-height: 128px;
-    padding: 12px 42px;
-    background-color: var(--main-bg-color);
+    /* Requires browser newer than August 2023 */
+    .album-image {
+        max-width: 80%;
+        max-height: 60%;
+    }
 
     .info-title {
-      margin: 2px 0 0 0;
-      color: var(--color-bg);
+        margin: 2px 0 0 0;
+        color: var(--color-bg);
     }
 
     .info-artist {
-      margin: 0 0 2px 0;
-      padding: 0;
+        margin: 0 0 2px 0;
+        padding: 0;
+        font-size: 1.2em;
     }
 
-    .info {
-      margin: 0 0 0 18px;
+    .player-info {
+        width: 100%;
+        max-width: 80%;
+        display: flex;
+        align-self: center;
+        text-align: center;
+        justify-content: space-between;
+        flex-direction: row;
     }
 
-    .info-image {
-      width: 94px;
-      border: 2px solid white;
-      border-radius: 5%;
+    .player-info div {
+        display: flex;
+        align-self: center;
+        text-align: center;
+        flex-direction: column;
+        font-size: 1.3em;
     }
 
-    .material-icons {
-      flex-grow: 1;
-      text-align: right;
-      font-size: 1.8em;
-      opacity: 0.2;
+    .player-info .material-icons {
+        font-size: 2.6rem;
+        height: 100%;
+        text-align: center;
+        align-items: center;
+        display: flex;
     }
+
+    .player-info .material-icons:nth-last-of-type(1) {
+        opacity: 0.2;
+    }
+
+    .seekbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 80%;
+    }
+
+    .seekbar progress {
+        width: 100%;
+        margin: 0 1em;
+        appearance: none;
+        height: 0.5em;
+    }
+
+    .bar::-webkit-progress-bar {
+        background-color: var(--dark-bg-color);
+        border-radius: 7px;
+    }
+    .bar::-webkit-progress-value {
+        background-color: white;
+        border-radius: 7px;
+    }
+    .bar::-moz-progress-bar {
+        background-color: var(--dark-bg-color);
+        border-radius: 7px;
+    }
+
+    .bar::-webkit-progress-inner-element {
+        background-color: white;
+        border-radius: 7px;
+    }
+}
+
+.tracks {
+    min-width: 50%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    border-right: 4px solid var(--border-color);
+    height: calc(100svh - 3.2em);
+    overflow-y: scroll;
+    scrollbar-width: 0px; /* Should hide scrollbar in Firefox, but does not seem to work? */
+
+    .info-item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        margin-bottom: 3px;
+        max-height: 128px;
+        padding: 12px 42px;
+        background-color: var(--main-bg-color);
+
+        .info-title {
+            margin: 2px 0 0 0;
+            color: var(--color-bg);
+        }
+
+        .info-artist {
+            margin: 0 0 2px 0;
+            padding: 0;
+        }
+
+        .info {
+            margin: 0 0 0 18px;
+        }
+
+        .info-image {
+            width: 94px;
+            border: 2px solid white;
+            border-radius: 5%;
+        }
+
+        .material-icons {
+            flex-grow: 1;
+            text-align: right;
+            font-size: 1.8em;
+            opacity: 0.2;
+        }
+    }
+
+    .info-item:hover {
+      filter: brightness(1.2);
   }
 
-  .info-item:first-child {
-    background-color: var(--trans-bg-color) !important;
+    .info-item:first-child {
+        background-color: var(--trans-bg-color) !important;
 
-    .material-icons {
-      opacity: 1;
+        .material-icons {
+            opacity: 1;
+        }
     }
-  }
 
-  .info-item:first-child {
-    margin-top: 3px;
-  }
+    .info-item:first-child {
+        margin-top: 3px;
+    }
 }
 
 @media (width < 400px) {
