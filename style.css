@@ -30,6 +30,7 @@ body {
 }
 
 .navbar {
+    position: sticky;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -86,7 +87,6 @@ body {
         }
     }
 
-    /* Requires browser newer than August 2023 */
     .album-image {
         max-width: 80%;
         max-height: 60%;
@@ -231,11 +231,24 @@ body {
     }
 }
 
-@media (width < 400px) {
+@media (width < 770px) {
+    body {
+        overflow: auto;
+    }
+    .root {
+        display: flex;
+        flex-direction: column;
+        overflow: auto;
+    }
     .player {
-        display: none;
+        order: -1;
+        border: none;
+    }
+    .album-image {
+        margin-bottom: 1rem;
     }
     .tracks {
         border: none;
+        height: fit-content;
     }
 }
